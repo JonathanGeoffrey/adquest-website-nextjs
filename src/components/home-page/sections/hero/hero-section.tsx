@@ -3,8 +3,24 @@ import { twMerge } from 'tailwind-merge'
 import CounterSection from './counter/counter-section'
 import HeroIllustration from './hero-illustration'
 import TextAnimation from './text-animation'
+import { useLang } from '@/utils/lang'
 
 const HeroSection = () => {
+  const lang = useLang()
+  const t = lang === 'en'
+    ? {
+      headline1: 'Get',
+      headline2: 'cash rewards',
+      headline3: 'from playing mobile games',
+      join: 'Join 300,000+ other players!'
+    }
+    : {
+      headline1: 'Dapatkan hadiah',
+      headline2: 'uang tunai',
+      headline3: 'dari main mobile games',
+      join: 'Gabung bersama 300,000+ players lainnya!'
+    }
+
   return (
     <div className='bg-white pt-[70px] md:pt-[150px] lg:pt-[30px] section-rounded__bottom z-[1] relative'>
       <div className='max-w-7xl mx-auto px-[24px] lg:px-[48px] relative'>
@@ -20,13 +36,13 @@ const HeroSection = () => {
               )}
             >
               <p>
-                Dapatkan hadiah <span className='text-main-green break-normal'>uang tunai</span> dari main mobile games <span className='lg:hidden'>untuk</span>
+                {t.headline1} <span className='text-main-green break-normal'>{t.headline2}</span> {t.headline3} <span className='lg:hidden'>{lang === 'en' ? 'for' : 'untuk'}</span>
               </p>
               <TextAnimation />
             </h1>
 
             <div data-aos="fade-right" data-aos-delay="500">
-              <p className='text-base text-center lg:text-left lg:text-xl font-extrabold text-main-gray mb-4'>Gabung bersama 300,000+ players lainnya!</p>
+              <p className='text-base text-center lg:text-left lg:text-xl font-extrabold text-main-gray mb-4'>{t.join}</p>
               <DownloadRating />
             </div>
 

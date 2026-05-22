@@ -5,6 +5,7 @@ import Button from '@/components/common/button';
 import Image, { StaticImageData } from 'next/image';
 import React, { useEffect } from 'react';
 import useMeasure from "react-use-measure";
+import { useLang } from '@/utils/lang';
 
 interface Game {
   name: string;
@@ -13,6 +14,7 @@ interface Game {
 }
 
 const GamesAvailableSection = () => {
+  const lang = useLang();
   const games: Game[] = [
     { name: 'Game 1', image: gameIcon1, url: 'https://game1.com' },
     { name: 'Game 2', image: gameIcon2, url: 'https://game2.com' },
@@ -45,7 +47,7 @@ const GamesAvailableSection = () => {
   return (
     <div className='bg-white relative z-[1] section-rounded__top overflow-hidden'>
       <div className='pt-[80px] md:pt-[120px] pb-[80px] mx-auto flex flex-col items-center gap-[20px] md:gap-[60px]'>
-        <h2 className='h2 text-center' data-aos="fade-down">Games <span>Available</span></h2>
+        <h2 className='h2 text-center' data-aos="fade-down">{lang === 'en' ? <>Games <span>Available</span></> : <>Game <span>Tersedia</span></>}</h2>
 
         <div className='w-full overflow-hidden'>
           {/* Motion row for infinite animation */}
@@ -70,8 +72,10 @@ const GamesAvailableSection = () => {
         </div>
 
         <div className='flex flex-col items-center gap-[50px]'>
-          <h3 className='font-bold text-xl md:text-2xl text-center'>#BerkaryaUntukBangsa</h3>
-          <Button href="https://play.google.com/store/apps/details?id=com.adquest.play&hl=id" className='max-w-[200px] text-center'>Kumpulkan Eggs Sekarang</Button>
+          <h3 className='font-bold text-xl md:text-2xl text-center'>{lang === 'en' ? '#CreateForTheNation' : '#BerkaryaUntukBangsa'}</h3>
+          <Button href={`https://play.google.com/store/apps/details?id=com.adquest.play&hl=${lang}`} className='max-w-[200px] text-center'>
+            {lang === 'en' ? 'Collect Eggs Now' : 'Kumpulkan Eggs Sekarang'}
+          </Button>
         </div>
       </div>
     </div>

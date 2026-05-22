@@ -1,8 +1,10 @@
 import DownloadRating from '@/components/common/download-rating'
 import { circlePattern1, circlePattern2, cta1Illustration } from '@/components/common/illustration'
 import Image from 'next/image'
+import { useLang } from '@/utils/lang'
 
 const Cta1Section = () => {
+  const lang = useLang()
   return (
     <div className=' flex items-center pt-[120px] pb-[80px] lg:pt-[140px] relative'>
       <div className="absolute w-full h-full overflow-hidden">
@@ -28,7 +30,9 @@ const Cta1Section = () => {
           </div>
         </div>
         <div className='flex-1 flex flex-col items-center lg:items-start w-3/4 lg:w-full' data-aos="fade-up">
-          <h2 className='text-4xl md:text-5xl lg:text-7xl mb-8 text-center md:text-left'>Bebaskan Dirimu dari Biaya Harian</h2>
+          <h2 className='text-4xl md:text-5xl lg:text-7xl mb-8 text-center md:text-left'>
+            {lang === 'en' ? 'Break Free from Daily Expenses' : 'Bebaskan Dirimu dari Biaya Harian'}
+          </h2>
           <DownloadRating
             ratingProps={{
               textClassName: 'text-white',

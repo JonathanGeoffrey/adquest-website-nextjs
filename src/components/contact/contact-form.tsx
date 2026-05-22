@@ -6,6 +6,7 @@ import TextArea from "../common/input/textarea"
 import Button from "../common/button"
 import egg from '../../../public/egg.png'
 import ReCAPTCHA from "react-google-recaptcha";
+import { useLang } from "@/utils/lang";
 
 interface ContactInputs {
   name: string
@@ -15,6 +16,7 @@ interface ContactInputs {
 }
 
 const HeroContactForm = () => {
+  const lang = useLang()
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isVerified, setIsVerified] = useState(false);
 
@@ -58,7 +60,7 @@ const HeroContactForm = () => {
 
   const onSubmit: SubmitHandler<ContactInputs> = async (data) => {
     if (!isVerified) {
-      setErrorMessage('Please verify that you are not a robot.')
+      setErrorMessage(lang === 'en' ? 'Please verify that you are not a robot.' : 'Mohon verifikasi bahwa Anda bukan robot.')
       return
     }
     
@@ -74,7 +76,7 @@ const HeroContactForm = () => {
         setIsSuccess(true)
       })
       .catch((err) => {
-        setErrorMessage('Failed to send message. Please try again later.')
+        setErrorMessage(lang === 'en' ? 'Failed to send message. Please try again later.' : 'Gagal mengirim pesan. Silakan coba lagi nanti.')
       })
       .finally(() => {
         setIsLoading(false)
@@ -82,7 +84,7 @@ const HeroContactForm = () => {
   }
 
   return isSuccess ? (
-    <div className='text-green-500'>Message sent successfully!</div>
+    <div className='text-green-500'>{lang === 'en' ? 'Message sent successfully!' : 'Pesan berhasil dikirim!'}</div>
   ) : (
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4 relative'>
       {isLoading && (
@@ -95,7 +97,7 @@ const HeroContactForm = () => {
       )}
       <div className='flex w-full gap-4'>
         <Input
-          label='Nama'
+          label={lang === 'en' ? 'Name' : 'Nama'}
           type='text'
           placeholder='e.g. John Doe'
           className='flex-1'
@@ -120,8 +122,8 @@ const HeroContactForm = () => {
         errorMessage={errors.email?.message}
       />
       <TextArea
-        label='Pesan Anda'
-        placeholder='Masukkan pesan anda disini...'
+        label={lang === 'en' ? 'Your Message' : 'Pesan Anda'}
+        placeholder={lang === 'en' ? 'Enter your message here...' : 'Masukkan pesan anda disini...'}
         rows={5}
         useFormRegister={register("message", { required: true })}
         errorMessage={errors.message?.message}
@@ -137,7 +139,7 @@ const HeroContactForm = () => {
         buttonType='button'
         disabled={!isVerified}
       >
-        Kirim Pesan
+        {lang === 'en' ? 'Send Message' : 'Kirim Pesan'}
       </Button>
     </form>
   )

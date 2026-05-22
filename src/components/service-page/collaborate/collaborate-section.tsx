@@ -1,41 +1,44 @@
+"use client"
 import Button from '@/components/common/button'
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
+import { useLang } from '@/utils/lang'
 
 export const CollaborateSection = () => {
+  const lang = useLang()
   const items: CollaborateSectionItem[] = [
     {
       title: 'Level 1',
-      description: 'Tim kami akan melakukan analisis mendalam terhadap game Anda dan memberikan laporan terperinci yang dapat mengidentifikasi peluang pertumbuhan serta rekomendasi yang dapat diimplementasikan pada games Anda. Ini semua akan didasarkan pada:',
+      description: lang === 'en' ? 'Our team will conduct in-depth analysis of your game and provide a detailed report to identify growth opportunities and actionable recommendations. This will be based on:' : 'Tim kami akan melakukan analisis mendalam terhadap game Anda dan memberikan laporan terperinci yang dapat mengidentifikasi peluang pertumbuhan serta rekomendasi yang dapat diimplementasikan pada games Anda. Ini semua akan didasarkan pada:',
       perks: [
-        'Metrik kinerja pendapatan IAP dan iklan',
-        'Strategi penempatan iklan',
-        'Optimasi format iklan',
-        'Analisis pengaturan waterfall setup',
-        'Evaluasi ad networks',
+        lang === 'en' ? 'IAP and ad revenue performance metrics' : 'Metrik kinerja pendapatan IAP dan iklan',
+        lang === 'en' ? 'Ad placement strategy' : 'Strategi penempatan iklan',
+        lang === 'en' ? 'Ad format optimization' : 'Optimasi format iklan',
+        lang === 'en' ? 'Waterfall setup analysis' : 'Analisis pengaturan waterfall setup',
+        lang === 'en' ? 'Ad network evaluation' : 'Evaluasi ad networks',
       ]
     },
     {
       title: 'Level 2',
-      description: 'Setelah audit dan presentasi dari tim AdQuest mengenai rekomendasi beserta langkah-langkah yang kami usulkan, kami akan menyusun rencana implementasi terperinci yang mencakup:',
+      description: lang === 'en' ? 'After audit and recommendation presentation from the AdQuest team, we will prepare a detailed implementation plan that includes:' : 'Setelah audit dan presentasi dari tim AdQuest mengenai rekomendasi beserta langkah-langkah yang kami usulkan, kami akan menyusun rencana implementasi terperinci yang mencakup:',
       perks: [
-        'Prioritas perubahan yang direkomendasikan',
-        'Pengaturan jaringan iklan dan platform mediasi',
-        'Integrasi format iklan baru',
-        'Optimasi strategi jaringan iklan dan mediasi',
-        'Penambahan penempatan iklan baru'
+        lang === 'en' ? 'Priority of recommended changes' : 'Prioritas perubahan yang direkomendasikan',
+        lang === 'en' ? 'Ad network and mediation platform setup' : 'Pengaturan jaringan iklan dan platform mediasi',
+        lang === 'en' ? 'New ad format integration' : 'Integrasi format iklan baru',
+        lang === 'en' ? 'Ad network and mediation strategy optimization' : 'Optimasi strategi jaringan iklan dan mediasi',
+        lang === 'en' ? 'New ad placements addition' : 'Penambahan penempatan iklan baru'
       ]
     },
     {
       title: 'Level 3',
-      description: 'Tanpa manajemen dan optimasi yang berkelanjutan, pendapatan bisa mulai menurun dengan cepat. Kami memastikan game Anda tetap teroptimasi dan tumbuh secara konsisten dengan cara:',
+      description: lang === 'en' ? 'Without continuous management and optimization, revenue can decline quickly. We help keep your game optimized and growing consistently by:' : 'Tanpa manajemen dan optimasi yang berkelanjutan, pendapatan bisa mulai menurun dengan cepat. Kami memastikan game Anda tetap teroptimasi dan tumbuh secara konsisten dengan cara:',
       perks: [
-        'Melakukan A/B testing',
-        'Merancang penempatan iklan untuk fitur baru',
-        'Mengelola konfigurasi waterfall dan mediasi',
-        'Mengawasi hubungan mitra dengan jaringan iklan',
-        'Menangani masalah terkait konten iklan baru',
-        'Mengidentifikasi dan mengamankan peluang bisnis baru yang menguntungkan'
+        lang === 'en' ? 'Running A/B testing' : 'Melakukan A/B testing',
+        lang === 'en' ? 'Designing ad placements for new features' : 'Merancang penempatan iklan untuk fitur baru',
+        lang === 'en' ? 'Managing waterfall and mediation configuration' : 'Mengelola konfigurasi waterfall dan mediasi',
+        lang === 'en' ? 'Overseeing partner relations with ad networks' : 'Mengawasi hubungan mitra dengan jaringan iklan',
+        lang === 'en' ? 'Handling issues related to new ad content' : 'Menangani masalah terkait konten iklan baru',
+        lang === 'en' ? 'Identifying and securing profitable new business opportunities' : 'Mengidentifikasi dan mengamankan peluang bisnis baru yang menguntungkan'
       ],
       type: 'full'
     },
@@ -47,7 +50,7 @@ export const CollaborateSection = () => {
       <div className='bg-white section-rounded__top px-[24px] md:px-[48px]'>
         <div className='py-[100px] max-w-7xl mx-auto flex flex-col items-center'>
           <div className='mb-[48px]' data-aos="fade-down">
-            <h2 className='h2 text-center'><span>Kolaborasi</span> Sekarang</h2>
+            <h2 className='h2 text-center'>{lang === 'en' ? <><span>Collaborate</span> Now</> : <><span>Kolaborasi</span> Sekarang</>}</h2>
           </div>
 
           <div className={twMerge(

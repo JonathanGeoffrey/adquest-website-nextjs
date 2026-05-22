@@ -8,14 +8,19 @@ import DownloadRating from '../download-rating'
 import AppIcon from './app-icon'
 import HeaderMenu, { HeaderMenuItem } from './menu/header-menu'
 import { usePathname } from 'next/navigation'
+import { useLang } from '@/utils/lang'
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const pathname = usePathname()
+  const lang = useLang()
+  const t = lang === 'en'
+    ? { products: 'Product', services: 'Service', downloadNow: 'Download Now!' }
+    : { products: 'Produk', services: 'Jasa', downloadNow: 'Download Sekarang!' }
 
   const headerMenu: HeaderMenuItem[] = [
-    { title: 'Produk', link: '/' },
-    { title: 'Jasa', link: '/service' },
+    { title: t.products, link: lang === 'en' ? '/?region=ph' : '/' },
+    ...(lang === 'en' ? [] : [{ title: t.services, link: '/service' }]),
     // { title: 'Tentang Kami', link: '/about-us' },
   ]
 
@@ -29,7 +34,6 @@ const Header = () => {
         {/* Desktop */}
         <div className='hidden lg:flex right-menu gap-12 items-center font-semibold text-main-green'>
           <HeaderMenu items={headerMenu} />
-          {/* <LangSelector /> */}
         </div>
 
         {/* Mobile */}
@@ -47,11 +51,11 @@ const Header = () => {
             className='absolute bg-white w-full shadow-xl overflow-hidden flex flex-col md:hidden'
           >
             {headerMenu.map((item, index) => (
-              <HeaderMobileMenuItem onClick={() => setShowMobileMenu(false)} key={index} {...item} isActive={pathname === item.link} />
+              <HeaderMobileMenuItem onClick={() => setShowMobileMenu(false)} key={index} {...item} isActive={pathname === item.link.split('?')[0]} />
             ))}
 
             <div className='px-[24px] flex justify-between items-center border-t py-2 gap-8 bg-gray-50'>
-              <span className='font-bold text-main-green'>Download Sekarang!</span>
+              <span className='font-bold text-main-green'>{t.downloadNow}</span>
               <DownloadRating showRating={false} />
             </div>
           </motion.div>

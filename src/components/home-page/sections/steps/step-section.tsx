@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 import { useEffect, useState } from 'react';
 import ControlButton from '../reviews/control-button';
+import { useLang } from '@/utils/lang';
 
 export interface Step {
   title: string;
@@ -16,6 +17,7 @@ export interface Step {
 }
 
 const StepSection = () => {
+  const lang = useLang()
   const [currentStep, setCurrentStep] = useState(0)
 
   // Animation Variants
@@ -33,18 +35,18 @@ const StepSection = () => {
 
   const steps: Step[] = [
     {
-      title: "Temukan dan download games yang kamu suka",
-      description: "AdQuest menyediakan banyak games yang bisa bantu kamu mendapatkan poin Eggs. Cari game yang seru buat kamu, lalu download langsung lewat aplikasi AdQuest.",
+      title: lang === 'en' ? "Find and download games you love" : "Temukan dan download games yang kamu suka",
+      description: lang === 'en' ? "AdQuest offers many games that help you earn Egg points. Find games you enjoy, then download them directly through the AdQuest app." : "AdQuest menyediakan banyak games yang bisa bantu kamu mendapatkan poin Eggs. Cari game yang seru buat kamu, lalu download langsung lewat aplikasi AdQuest.",
       illustration: mockupHome,
     },
     {
-      title: "Selesaikan misi dan kumpulkan eggs sebagai hadiahmu",
-      description: "Setelah download, mainkan gamenya langsung untuk mendapatkan “Eggs” (poin). Makin banyak dan tinggi misi yang kamu selesaikan, makin banyak Eggs yang terkumpul.",
+      title: lang === 'en' ? "Complete missions and collect Eggs as rewards" : "Selesaikan misi dan kumpulkan eggs sebagai hadiahmu",
+      description: lang === 'en' ? "After downloading, play the game to earn “Eggs” (points). The more and higher-level missions you complete, the more Eggs you collect." : "Setelah download, mainkan gamenya langsung untuk mendapatkan “Eggs” (poin). Makin banyak dan tinggi misi yang kamu selesaikan, makin banyak Eggs yang terkumpul.",
       illustration: mockupTasks,
     },
     {
-      title: "Tukarkan Eggs dengan uang tunai",
-      description: "Kalau Eggsmu sudah cukup, buka halaman Hadiah di AdQuest dan tukarkan dengan hadiah yang tersedia seperti saldo DANA dan OVO.",
+      title: lang === 'en' ? "Redeem Eggs for cash" : "Tukarkan Eggs dengan uang tunai",
+      description: lang === 'en' ? "When you have enough Eggs, open the Rewards page in AdQuest and redeem available rewards like DANA and OVO balance." : "Kalau Eggsmu sudah cukup, buka halaman Hadiah di AdQuest dan tukarkan dengan hadiah yang tersedia seperti saldo DANA dan OVO.",
       illustration: mockupRewards,
     },
   ]
@@ -69,7 +71,7 @@ const StepSection = () => {
     <div className='bg-white z-[1] relative pb-[150px] pt-[100px] section-rounded__top section-rounded__bottom'>
       <div className='section flex flex-col items-center'>
         <h2 className='h2 w-full md:w-1/2 text-balance !text-center' data-aos="fade-down">
-          Main <span className='text-main-green'>dan Menangkan</span>
+          {lang === 'en' ? <>Play <span className='text-main-green'>and Win</span></> : <>Main <span className='text-main-green'>dan Menangkan</span></>}
         </h2>
 
         <div className='flex flex-col md:flex-row gap-[24px] md:gap-[50px] items-center justify-between w-full md:mt-12 mb-[120px] md:mb-[150px]'>
@@ -102,7 +104,9 @@ const StepSection = () => {
             <p className='md:text-xl font-medium mb-8 text-center md:text-left'>
               {steps[currentStep].description}
             </p>
-            <Button href="https://play.google.com/store/apps/details?id=com.adquest.play&hl=id" className='w-full py-4 md:py-2 md:max-w-[250px] text-lg md:text-xl text-center leading-tight'>Kumpulkan Eggs Sekarang!</Button>
+            <Button href={`https://play.google.com/store/apps/details?id=com.adquest.play&hl=${lang}`} className='w-full py-4 md:py-2 md:max-w-[250px] text-lg md:text-xl text-center leading-tight'>
+              {lang === 'en' ? 'Collect Eggs Now!' : 'Kumpulkan Eggs Sekarang!'}
+            </Button>
           </div>
         </div>
 
@@ -143,8 +147,11 @@ const StepSection = () => {
 
             <div className='flex flex-col justify-center px-[40px] py-[100px] md:p-[80px] z-[2] bg-main-gray-2/50'>
               <h2 className='text-2xl md:text-3xl lg:text-6xl z-[1] mb-4'>
-                Nikmati Serunya Mendapatkan Keuntungan dari Bermain Games di <span className='text-main-green'>AdQuest</span> Bersama{' '}
-                <span className='text-main-green'>300,000+</span> Players Lainnya!
+                {lang === 'en' ? (
+                  <>Enjoy the excitement of earning rewards from playing games in <span className='text-main-green'>AdQuest</span> with <span className='text-main-green'>300,000+</span> other players!</>
+                ) : (
+                  <>Nikmati Serunya Mendapatkan Keuntungan dari Bermain Games di <span className='text-main-green'>AdQuest</span> Bersama <span className='text-main-green'>300,000+</span> Players Lainnya!</>
+                )}
               </h2>
 
               <DownloadRating showRating={false} />

@@ -2,14 +2,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { twMerge } from "tailwind-merge";
+import { useLang } from "@/utils/lang";
 
 const TextAnimation = () => {
-  const texts = [
-    "Belanja Online",
-    "Beli Pulsa",
-    "Top Up Game",
-    "Budget Healing"
-  ];
+  const lang = useLang();
+  const texts = lang === "en"
+    ? ["Online Shopping", "Buy Phone Credit", "Game Top Up", "Travel Budget"]
+    : ["Belanja Online", "Beli Pulsa", "Top Up Game", "Budget Healing"];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [textWidth, setTextWidth] = useState(0);
   const textRef = useRef<HTMLDivElement>(null);
@@ -31,7 +30,7 @@ const TextAnimation = () => {
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-4 items-center h-fit">
-      <span className="hidden lg:block">untuk</span>
+      <span className="hidden lg:block">{lang === "en" ? "for" : "untuk"}</span>
       <motion.div
         // Animate the width of the container dynamically
         animate={{ width: textWidth }}

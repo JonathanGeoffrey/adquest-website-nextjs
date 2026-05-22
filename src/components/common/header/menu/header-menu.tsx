@@ -23,7 +23,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
   return (
     <ul className='flex gap-12 items-center'>
       {items.map((item, index) => (
-        <li key={index} className={twMerge(pathname === item.link ? 'font-extrabold' : '')}><Link href={item.link}>{item.title}</Link></li>
+        <li key={index} className={twMerge(pathname === item.link.split('?')[0] ? 'font-extrabold' : '')}><Link href={item.link}>{item.title}</Link></li>
       ))}
     </ul>
   );
