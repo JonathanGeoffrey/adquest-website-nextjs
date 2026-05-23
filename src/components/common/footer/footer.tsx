@@ -7,10 +7,15 @@ import { useLang } from '@/utils/lang'
 
 const Footer = () => {
   const lang = useLang()
-  const footerLinks = [
-    { title: "T&C", href: '/documents/syarat-ketentuan.html' },
-    { title: "Privacy Policy", href: '/documents/kebijakan-privasi.html' },
-  ]
+  const footerLinks = lang === 'en'
+    ? [
+      { title: "T&C", href: '/documents/terms-and-conditions.html' },
+      { title: "Privacy Policy", href: '/documents/privacy-policy.html' },
+    ]
+    : [
+      { title: "T&C", href: '/documents/syarat-ketentuan.html' },
+      { title: "Privacy Policy", href: '/documents/kebijakan-privasi.html' },
+    ]
   const description = lang === 'en'
     ? 'AdQuest is a mobile app that lets gamers earn points by playing featured games and redeem them for cash.'
     : 'AdQuest adalah aplikasi mobile yang memungkinkan para gamers memperoleh poin dengan memainkan game-game unggulan dan menukarkannya dengan uang tunai.'
