@@ -2,7 +2,7 @@
 import Button from '@/components/common/button';
 import DownloadRating from '@/components/common/download-rating';
 import { ctaImage, illustDino, illustKoin } from '@/components/common/illustration';
-import { mockupHome, mockupRewards, mockupTasks } from '@/components/common/mockup';
+import { mockupHome, mockupHomePH, mockupRewards, mockupRewardsPH, mockupTasks, mockupTasksPH } from '@/components/common/mockup';
 import Steps from '@/components/common/step/steps';
 import { AnimatePresence, motion } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
@@ -19,6 +19,9 @@ export interface Step {
 const StepSection = () => {
   const lang = useLang()
   const [currentStep, setCurrentStep] = useState(0)
+  const stepMockupHome = lang === 'en' ? mockupHomePH : mockupHome
+  const stepMockupTasks = lang === 'en' ? mockupTasksPH : mockupTasks
+  const stepMockupRewards = lang === 'en' ? mockupRewardsPH : mockupRewards
 
   // Animation Variants
   const bobbingAnimation = {
@@ -37,17 +40,17 @@ const StepSection = () => {
     {
       title: lang === 'en' ? "Find and download games you love" : "Temukan dan download games yang kamu suka",
       description: lang === 'en' ? "AdQuest offers many games that help you earn Egg points. Find games you enjoy, then download them directly through the AdQuest app." : "AdQuest menyediakan banyak games yang bisa bantu kamu mendapatkan poin Eggs. Cari game yang seru buat kamu, lalu download langsung lewat aplikasi AdQuest.",
-      illustration: mockupHome,
+      illustration: stepMockupHome,
     },
     {
       title: lang === 'en' ? "Complete missions and collect Eggs as rewards" : "Selesaikan misi dan kumpulkan eggs sebagai hadiahmu",
       description: lang === 'en' ? "After downloading, play the game to earn “Eggs” (points). The more and higher-level missions you complete, the more Eggs you collect." : "Setelah download, mainkan gamenya langsung untuk mendapatkan “Eggs” (poin). Makin banyak dan tinggi misi yang kamu selesaikan, makin banyak Eggs yang terkumpul.",
-      illustration: mockupTasks,
+      illustration: stepMockupTasks,
     },
     {
       title: lang === 'en' ? "Redeem Eggs for cash" : "Tukarkan Eggs dengan uang tunai",
       description: lang === 'en' ? "When you have enough Eggs, open the Rewards page in AdQuest and redeem available rewards like DANA and OVO balance." : "Kalau Eggsmu sudah cukup, buka halaman Hadiah di AdQuest dan tukarkan dengan hadiah yang tersedia seperti saldo DANA dan OVO.",
-      illustration: mockupRewards,
+      illustration: stepMockupRewards,
     },
   ]
 

@@ -1,4 +1,5 @@
 import cta1Illustration from '../../../public/images/illustration/cta/cta_illust.webp'
+import cta1IllustrationPH from '../../../public/images/illustration/cta/cta_illust_ph.png'
 import circlePattern1 from '../../../public/images/illustration/pattern/circle_pattern1.svg'
 import circlePattern2 from '../../../public/images/illustration/pattern/circle_pattern2.svg'
 import circlePattern1Black from '../../../public/images/illustration/pattern/circle_pattern1_black.svg'
@@ -18,6 +19,7 @@ import illustDinoEgg from '../../../public/images/illustration/hero/illust_dino_
 export {
   gPlayDownload,
   cta1Illustration,
+  cta1IllustrationPH,
   circlePattern1,
   circlePattern2,
   ctaImage,

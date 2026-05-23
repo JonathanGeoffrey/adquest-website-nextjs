@@ -1,9 +1,13 @@
+"use client"
 import { illustDinoEgg, illustKoin } from "@/components/common/illustration";
-import { mockupHome } from "@/components/common/mockup";
+import { mockupHome, mockupHomePH } from "@/components/common/mockup";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { useLang } from "@/utils/lang";
 
 const HeroIllustration = () => {
+  const lang = useLang();
+  const heroMockup = lang === "en" ? mockupHomePH : mockupHome;
 
   // Animation Variants
   const bobbingAnimation = {
@@ -30,7 +34,7 @@ const HeroIllustration = () => {
         <Image src={illustKoin} alt="illustration" className="w-fit h-[100px]" />
       </motion.div>
       <div className='w-full h-[500px] relative'>
-        <Image src={mockupHome} alt='Hero Image' fill objectFit='contain' />
+        <Image src={heroMockup} alt='Hero Image' fill objectFit='contain' />
       </div>
     </div>
   )
