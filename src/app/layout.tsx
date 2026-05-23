@@ -3,6 +3,7 @@ import Footer from "@/components/common/footer/footer";
 import Header from "@/components/common/header/header";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -36,9 +37,13 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${inter.variable} antialiased`}
       >
-        <Header />
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
         {children}
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );

@@ -23,7 +23,7 @@ export const HeroSection = () => {
       <div className='py-[80px] md:py-[150px] flex flex-col md:flex-row items-start max-w-7xl mx-auto px-[24px] md:px-[48px] gap-[48px] md:gap-[60px]'>
         <div className='md:w-[50%] flex flex-col gap-[24px]'>
           <h1 className='h1'>About <span>Us</span></h1>
-          <p>Di AdQuest, kami merevolusi pengalaman gaming mobile dengan mengintegrasikan peluang "main dan menangkan". Lebih dari 200.000 pemain secara aktif terlibat dengan platform kami, menemukan game baru, dan memperoleh hadiah sambil bermain.</p>
+          <p>Di AdQuest, kami merevolusi pengalaman gaming mobile dengan mengintegrasikan peluang &quot;main dan menangkan&quot;. Lebih dari 200.000 pemain secara aktif terlibat dengan platform kami, menemukan game baru, dan memperoleh hadiah sambil bermain.</p>
         </div>
         <div className='flex-1 flex flex-col gap-[24px]' data-aos="fade-right">
           {accordionData.map((faq, index) => (

@@ -38,7 +38,7 @@ const HeroContactForm = () => {
         });
         setIsVerified(true);
       }
-    } catch (e) {
+    } catch {
       setIsVerified(false);
     }
   }
@@ -54,7 +54,6 @@ const HeroContactForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<ContactInputs>()
 
@@ -72,10 +71,10 @@ const HeroContactForm = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((response) => {
+      .then(() => {
         setIsSuccess(true)
       })
-      .catch((err) => {
+      .catch(() => {
         setErrorMessage(lang === 'en' ? 'Failed to send message. Please try again later.' : 'Gagal mengirim pesan. Silakan coba lagi nanti.')
       })
       .finally(() => {

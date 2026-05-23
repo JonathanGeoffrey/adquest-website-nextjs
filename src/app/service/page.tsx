@@ -2,6 +2,7 @@ import { CollaborateSection } from '@/components/service-page/collaborate/collab
 import { HeroSection } from '@/components/service-page/hero/hero-section';
 import { MonetizationSection } from '@/components/service-page/monetization-section/monetization-section';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: "AdQuest | High Performance Ads Monetization Consultation",
@@ -14,9 +15,11 @@ export const metadata: Metadata = {
 const ServicePage = () => {
   return (
     <div className="service overflow-x-hidden">
-      <HeroSection />
-      <MonetizationSection />
-      <CollaborateSection />
+      <Suspense fallback={null}>
+        <HeroSection />
+        <MonetizationSection />
+        <CollaborateSection />
+      </Suspense>
     </div>
   )
 }

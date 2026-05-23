@@ -1,5 +1,4 @@
 "use client"
-import Button from '@/components/common/button'
 import { circlePattern1Black, circlePattern2Black, monetization1Illustration, monetization2Illustration } from '@/components/common/illustration'
 import Image from 'next/image'
 import React from 'react'

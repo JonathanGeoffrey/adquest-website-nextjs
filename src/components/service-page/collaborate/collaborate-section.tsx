@@ -1,5 +1,4 @@
 "use client"
-import Button from '@/components/common/button'
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
 import { useLang } from '@/utils/lang'
