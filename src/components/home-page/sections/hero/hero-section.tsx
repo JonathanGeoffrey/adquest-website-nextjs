@@ -11,7 +11,7 @@ const HeroSection = () => {
     ? {
       headline1: 'Get',
       headline2: 'cash rewards',
-      headline3: 'from playing mobile games',
+      headline3: 'by playing mobile games',
       join: 'Join 300,000+ other players!'
     }
     : {

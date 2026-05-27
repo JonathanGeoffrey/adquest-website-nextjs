@@ -32,7 +32,7 @@ const Cta1Section = () => {
         </div>
         <div className='flex-1 flex flex-col items-center lg:items-start w-3/4 lg:w-full' data-aos="fade-up">
           <h2 className='text-4xl md:text-5xl lg:text-7xl mb-8 text-center md:text-left'>
-            {lang === 'en' ? 'Break Free from Daily Expenses' : 'Bebaskan Dirimu dari Biaya Harian'}
+            {lang === 'en' ? 'Earn for Everyday Needs by Playing Mobile Games' : 'Bebaskan Dirimu dari Biaya Harian'}
           </h2>
           <DownloadRating
             ratingProps={{

@@ -49,7 +49,7 @@ const StepSection = () => {
     },
     {
       title: lang === 'en' ? "Redeem Eggs for cash" : "Tukarkan Eggs dengan uang tunai",
-      description: lang === 'en' ? "When you have enough Eggs, open the Rewards page in AdQuest and redeem available rewards like DANA and OVO balance." : "Kalau Eggsmu sudah cukup, buka halaman Hadiah di AdQuest dan tukarkan dengan hadiah yang tersedia seperti saldo DANA dan OVO.",
+      description: lang === 'en' ? "When you have enough Eggs, open the Rewards page in AdQuest and redeem available rewards like GCash balance." : "Kalau Eggsmu sudah cukup, buka halaman Hadiah di AdQuest dan tukarkan dengan hadiah yang tersedia seperti saldo DANA dan OVO.",
       illustration: stepMockupRewards,
     },
   ]
