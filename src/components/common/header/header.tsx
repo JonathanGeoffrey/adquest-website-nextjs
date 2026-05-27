@@ -20,7 +20,7 @@ const Header = () => {
 
   const headerMenu: HeaderMenuItem[] = [
     { title: t.products, link: lang === 'en' ? '/?region=ph' : '/' },
-    ...(lang === 'en' ? [] : [{ title: t.services, link: '/service' }]),
+    // ...(lang === 'en' ? [] : [{ title: t.services, link: '/service' }]),
     // { title: 'Tentang Kami', link: '/about-us' },
   ]
 
