@@ -19,7 +19,7 @@ const Header = () => {
     : { products: 'Produk', services: 'Jasa', downloadNow: 'Download Sekarang!' }
 
   const headerMenu: HeaderMenuItem[] = [
-    { title: t.products, link: lang === 'en' ? '/?region=ph' : '/' },
+    // { title: t.products, link: lang === 'en' ? '/?region=ph' : '/' },
     // ...(lang === 'en' ? [] : [{ title: t.services, link: '/service' }]),
     // { title: 'Tentang Kami', link: '/about-us' },
   ]
